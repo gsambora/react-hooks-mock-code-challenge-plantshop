@@ -2,7 +2,7 @@ import React from "react";
 import PlantCard from "./PlantCard";
 
 function PlantList({allPlants}) {
-  console.log(allPlants)
+  //console.log(allPlants)
   return (
     <ul className="cards">{
       allPlants.map((plant)=>{

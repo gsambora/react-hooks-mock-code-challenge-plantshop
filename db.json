@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Hoya",
+      "image": "https://i.guim.co.uk/img/media/7bc0c96b98619b50669fd47737831dab52704b47/0_1172_4912_2947/master/4912.jpg?width=445&dpr=1&s=none",
+      "price": "15",
+      "id": 8
     }
   ]
 }

@@ -15,9 +15,19 @@ function PlantPage() {
       })
   }, []);
 
+  function handleNewPlant(newPlant){
+    // const newPlant = {
+    //   name: name,
+    //   image: image,
+    //   price: price,
+    //   id: allPlants.length+1
+    // }
+    setAllPlants([...allPlants, newPlant])
+  }
+
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm handleNewPlant={handleNewPlant}/>
       <Search />
       <PlantList allPlants={allPlants}/>
     </main>
