@@ -7,7 +7,6 @@ function PlantPage() {
   const [allPlants, setAllPlants] = useState([]);
 
   useEffect(() => {
-    //console.log("i got here");
     fetch("http://localhost:6001/plants")
       .then((r) => r.json())
       .then((plants) => {
@@ -16,19 +15,30 @@ function PlantPage() {
   }, []);
 
   function handleNewPlant(newPlant){
-    // const newPlant = {
-    //   name: name,
-    //   image: image,
-    //   price: price,
-    //   id: allPlants.length+1
-    // }
     setAllPlants([...allPlants, newPlant])
+  }
+
+  function handleSearch(searchText){
+    if(searchText === ""){
+      resetPlants()
+    } else{
+      const updatedPlants = allPlants.filter((plant)=>plant.name.toLowerCase().includes(searchText.toLowerCase()))
+      setAllPlants(updatedPlants);
+    }
+  }
+
+  function resetPlants(){
+    fetch("http://localhost:6001/plants")
+    .then((r) => r.json())
+    .then((plants) => {
+      setAllPlants(plants);
+    })
   }
 
   return (
     <main>
       <NewPlantForm handleNewPlant={handleNewPlant}/>
-      <Search />
+      <Search handleSearch={handleSearch} resetPage={resetPlants}/>
       <PlantList allPlants={allPlants}/>
     </main>
   );
